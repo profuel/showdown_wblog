@@ -3,6 +3,7 @@ from django.db import models
 
 class Blog(models.Model):
 	alias = models.CharField(unique = True, max_length = 32, null = False, blank = False)
+	name = models.CharField(max_length = 256, default = '', null = False, blank = False)
 	active = models.BooleanField(default = True)
 
 class Post(models.Model):
