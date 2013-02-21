@@ -14,12 +14,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
 	'default': {
-		'ENGINE': 'sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-		'NAME': 'wblog', # Or path to database file if using sqlite3.
-		'USER': '', # Not used with sqlite3.
-		'PASSWORD': '', # Not used with sqlite3.
-		'HOST': '', # Set to empty string for localhost. Not used with sqlite3.
-		'PORT': '', # Set to empty string for default. Not used with sqlite3.
+		'ENGINE': 'sqlite3',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+		'NAME': 'wblog',  # Or path to database file if using sqlite3.
+		'USER': '',  # Not used with sqlite3.
+		'PASSWORD': '',  # Not used with sqlite3.
+		'HOST': '',  # Set to empty string for localhost. Not used with sqlite3.
+		'PORT': '',  # Set to empty string for default. Not used with sqlite3.
 	}
 }
 
@@ -64,7 +64,7 @@ sys.path.append(PRJ_ROOT + '/external/')
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = PRJ_ROOT + '/media/'
-#DATA_ROOT = PRJ_ROOT + '/data/'
+# DATA_ROOT = PRJ_ROOT + '/data/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -133,10 +133,12 @@ INSTALLED_APPS = (
 	'django.contrib.sessions',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
+	'blog',
+	'south',
 )
 
 
-SESSION_COOKIE_AGE = 31 * 24 * 60 * 60 * 60 # A month of cookie life
+SESSION_COOKIE_AGE = 31 * 24 * 60 * 60 * 60  # A month of cookie life
 
 SESSION_COOKIE_WILDCARD_DOMAINS = []
 
@@ -150,5 +152,7 @@ FILE_CHARSET = 'utf-8'
 WEB_ROOT = ''
 
 ADMIN_URL_PREFIX = '/admin/'
+
+UPLOAD_DIR = 'media/uploaded/'
 
 from settings_local import *
