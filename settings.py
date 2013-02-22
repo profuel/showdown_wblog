@@ -96,6 +96,7 @@ MIDDLEWARE_CLASSES = (
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.locale.LocaleMiddleware',
 	'django.middleware.transaction.TransactionMiddleware',
+	'apps.blog.middleware.BlogMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -127,12 +128,11 @@ INSTALLED_APPS = (
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
-        'django.contrib.sitemaps',
 	'django.contrib.messages',
 	'django.contrib.admin',
 	'django.contrib.sessions',
 	'django.contrib.auth',
-	'django.contrib.contenttypes',
+    'django.contrib.staticfiles',
 	'blog',
 	'south',
 )
@@ -147,12 +147,16 @@ TRANSLATION_REGISTRY = "translation"
 STATIC_DOC_ROOT = PRJ_ROOT + '/media/'
 TEMP_DIR = STATIC_DOC_ROOT + '/temp'
 
+STATIC_URL = PRJ_ROOT + '/media/'
+
+
 FILE_CHARSET = 'utf-8'
 
 WEB_ROOT = ''
 
 ADMIN_URL_PREFIX = '/admin/'
 
-UPLOAD_DIR = 'media/uploaded/'
+UPLOAD_DIR = 'uploaded/'
+DEFAULT_MESSAGES_COUNT = 10
 
 from settings_local import *
