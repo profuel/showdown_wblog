@@ -6,8 +6,8 @@ blog_view = BlogView()
 blog_api_view = BlogApiView()
 
 urlpatterns = patterns('',
-                    url(r'^/blog/', blog_view, {'action' : 'index'}),
-                    url(r'^/blog/add/$', blog_view, {'action' : 'add'}),
-                    url(r'^/blog/get/(?P<from>\d+)/$', blog_view, {'action' : 'get'}),
-                    url(r'^/blog/get/(?P<from>\d+)/(?P<to>\d+)/$', blog_api_view, {'action' : 'get'}),
+                    url(r'^blog/(?P<blogname>.+)/', blog_view, {'action' : 'index'}),
+                    url(r'^blog/(?P<blogname>.+)/add/$', blog_view, {'action' : 'add'}),
+                    url(r'^blog/(?P<blogname>.+)/get/(?P<from>\d+)/$', blog_view, {'action' : 'get'}),
+                    url(r'^blog/(?P<blogname>.+)/get/(?P<from>\d+)/(?P<to>\d+)/$', blog_api_view, {'action' : 'get'}),
 )
