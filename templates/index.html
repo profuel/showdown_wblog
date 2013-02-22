@@ -3,6 +3,14 @@
 <title></title>
 </head>
 <body>
+<div>
+{% if request.user.is_authenticated %}
+{{request.user}}
+<a href="/user/logout/">Logout</a>
+{% else %}
+<a href="/user/login/">Login</a>
+{% endif %}
+</div>
 {% block content %}
 
 {% endblock %}

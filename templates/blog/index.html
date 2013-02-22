@@ -2,4 +2,15 @@
 
 {% block content %}
 <h2>{{request.blog}}</h2>
+<table id="add">
+{{post_add.as_table}}
+</table>
+<ul id="posts">
+{% for post in request.blog.get_entries %}
+ <li>
+ 	{% if post.image %}<img width="100px" style="align:left;" src="{{MEDIA_URL}}{{post.image}}""/>{% endif %}
+ 	{{post.message}}
+ </li>
+{% endfor %}
+</ul>
 {% endblock %}

@@ -10,7 +10,7 @@ class Blog(models.Model):
         return self.name
 
     def get_entries(self, first = 0, count = settings.DEFAULT_MESSAGES_COUNT):
-        return self.post_set.all()[first:count]
+        return self.post_set.all().order_by('-pk')[first:count]
 
 class Post(models.Model):
     blog = models.ForeignKey(Blog)
