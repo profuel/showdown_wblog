@@ -25,14 +25,12 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal('blog', ['Post'])
 
-
     def backwards(self, orm):
         # Deleting model 'Blog'
         db.delete_table('blog_blog')
 
         # Deleting model 'Post'
         db.delete_table('blog_post')
-
 
     models = {
         'blog.blog': {
