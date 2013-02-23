@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('',
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+#    (r'^admin_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.ADMIN_MEDIA_ROOT}),
 )
 
 urlpatterns = blog_patterns + urlpatterns

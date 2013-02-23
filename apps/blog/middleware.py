@@ -6,7 +6,7 @@ class BlogMiddleware(object):
     def process_request(self, request):
         try:
             parts = request.META['PATH_INFO'].rstrip('/').split('/')
-            if parts[1] in ['media', 'user']:
+            if parts[1] in ['media', 'user', 'admin']:
                 return
             alias = parts[2]
             if alias == 'admin':

@@ -1,18 +1,18 @@
 <html>
+
 <head>
-<title></title>
+<title>Wall Blogs</title>
+<script src="{{MEDIA_URL}}libs/jquery-1.7.1.js"></script>
+<script src="{{MEDIA_URL}}libs/jquery.scrollto.js"></script>
 </head>
+
 <body>
 <div>
-{% if request.user.is_authenticated %}
-{{request.user}}
-<a href="/user/logout/">Logout</a>
-{% else %}
-<a href="/user/login/">Login</a>
-{% endif %}
+{% include 'user/state_block.html' %}
 </div>
 {% block content %}
 
 {% endblock %}
 </body>
+
 </html>

@@ -77,7 +77,7 @@ MEDIA_URL = '/media/'
 
 MEDIA_PREFIX = '/media/'
 
-ADMIN_MEDIA_PREFIX = '/admin_media/'
+ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 
 # Make this unique, and don't share it with anybody.

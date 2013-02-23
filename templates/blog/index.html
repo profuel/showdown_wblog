@@ -2,14 +2,14 @@
 
 {% block content %}
 <h2>{{request.blog}}</h2>
-<table id="add">
-{{post_add.as_table}}
-</table>
+{% if request.user.is_authenticated %}
+<a href="add/">Post</a>
+{% endif %}
 <ul id="posts">
 {% for post in request.blog.get_entries %}
  <li>
  	{% if post.image %}<img width="100px" style="align:left;" src="{{MEDIA_URL}}{{post.image}}""/>{% endif %}
- 	{{post.message}}
+ 	{{post.message}} <small>by {{post.user}}</small>
  </li>
 {% endfor %}
 </ul>

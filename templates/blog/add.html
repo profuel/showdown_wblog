@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h2><a href="{{request.blog.get_url}}">{{request.blog}}</a></h2>
+<form method="post" enctype="multipart/form-data">
+<table id="add">
+{{post_add_form.as_table}}
+</table>
+<input type="submit" value="Post" />
+</form>
+
+{% endblock %}
