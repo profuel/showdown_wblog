@@ -1,6 +1,7 @@
 from apps.blog.models import Blog
 from django.http import Http404
 
+
 class BlogMiddleware(object):
 
     def process_request(self, request):
@@ -11,7 +12,7 @@ class BlogMiddleware(object):
             alias = parts[2]
             if alias == 'admin':
                 return
-            request.blog = Blog.objects.get(alias = alias)
+            request.blog = Blog.objects.get(alias=alias)
         except Blog.DoesNotExist:
             raise Http404
         except IndexError:
