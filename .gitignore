@@ -1,5 +1,6 @@
-
+.venv
 *.pyc
 /.project
 /.pydevproject
 /media/uploaded
+wblog.db

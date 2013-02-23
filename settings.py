@@ -14,8 +14,9 @@ MANAGERS = ADMINS
 
 DATABASES = {
 	'default': {
-		'ENGINE': 'sqlite3',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-		'NAME': 'wblog',  # Or path to database file if using sqlite3.
+    # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': 'wblog.db',  # Or path to database file if using sqlite3.
 		'USER': '',  # Not used with sqlite3.
 		'PASSWORD': '',  # Not used with sqlite3.
 		'HOST': '',  # Set to empty string for localhost. Not used with sqlite3.
@@ -41,7 +42,7 @@ LANGUAGES = (
 )
 
 LOCALE_PRICE_SEPARATOR = {
-	'en':'.'
+	'en': '.'
 }
 
 # If you set this to False, Django will make some optimizations so as not
@@ -179,4 +180,3 @@ INTERNAL_IPS = ('127.0.0.1')
 
 
 from settings_local import *
-
