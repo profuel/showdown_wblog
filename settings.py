@@ -42,7 +42,7 @@ LANGUAGES = (
 )
 
 LOCALE_PRICE_SEPARATOR = {
-	'en':'.'
+	'en': '.'
 }
 
 # If you set this to False, Django will make some optimizations so as not
@@ -180,4 +180,3 @@ INTERNAL_IPS = ('127.0.0.1')
 
 
 from settings_local import *
-
