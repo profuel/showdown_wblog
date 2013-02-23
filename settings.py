@@ -14,7 +14,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
 	'default': {
-                # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+    # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
 		'ENGINE': 'django.db.backends.sqlite3',
 		'NAME': 'wblog.db',  # Or path to database file if using sqlite3.
 		'USER': '',  # Not used with sqlite3.
