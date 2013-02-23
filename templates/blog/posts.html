@@ -12,4 +12,6 @@
  </div>
  <hr/>
 {% endfor %}
+{% if posts.exists and not final %}
 <li id="last" data-last="{{lastcount}}"></li>
+{% endif %}

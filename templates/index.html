@@ -12,7 +12,7 @@
 <body>
 <div class="container">
 	<div class="hero-unit">
-		<h1>{{request.blog}}</h1>
+		<h1><a href="{{request.blog.geturl}}">{{request.blog}}</a></h1>
 	</div>
 	
 	{% include 'user/state_block.html' %}

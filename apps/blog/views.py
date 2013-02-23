@@ -1,3 +1,4 @@
+from django.conf import settings
 from external.base_views import BaseView, render_html, authorized_user_required
 from blog.models import Blog, Post
 from django.http import HttpResponse, HttpResponseRedirect
@@ -13,8 +14,17 @@ class BlogView(BaseView):
     @render_html('blog/index.html')
     def index(self, request, *args, **kwargs):
         entries = request.blog.get_entries()
+#        import pdb; pdb.set_trace()
         return { 'posts' : entries,
                  'lastcount' : entries.count() }
+
+    @render_html('blog/posts.html')
+    def next(self, request, lastcount, *args, **kwargs):
+        lastcount = int(lastcount)
+        entries = request.blog.get_entries(lastcount)
+        return { 'posts' : entries,
+                 'lastcount' : lastcount + entries.count(),
+                 'final' : entries.count() < settings.DEFAULT_MESSAGES_COUNT }
 
     @authorized_user_required('/login/')
     @render_html('blog/add.html')

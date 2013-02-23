@@ -8,7 +8,7 @@ class UserView(BaseView):
 
     @render_html('user/login.html')
     def login(self, request):
-        form = LoginForm(request, data=request.POST if request.POST else None)
+        form = LoginForm(request, data = request.POST if request.POST else None)
         if form.is_valid():
             return HttpResponseRedirect(request.GET.get('back', '/blog/'))
         return {'form': form}
@@ -19,5 +19,8 @@ class UserView(BaseView):
 
     @render_html('user/register.html')
     def register(self, request):
-        form = RegisterForm(data=request.POST if request.POST else None)
+        form = RegisterForm(data = request.POST if request.POST else None)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(request.GET.get('back', '/blog/'))
         return {'form': form}

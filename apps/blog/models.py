@@ -7,21 +7,21 @@ UPLOAD_DIR = settings.UPLOAD_DIR
 
 
 class Blog(models.Model):
-    alias = models.CharField(unique=True,
-                             max_length=32,
-                             null=False,
-                             blank=False)
-    name = models.CharField(max_length=256,
-                            default='',
-                            null=False,
-                            blank=False)
-    active = models.BooleanField(default=True)
+    alias = models.CharField(unique = True,
+                             max_length = 32,
+                             null = False,
+                             blank = False)
+    name = models.CharField(max_length = 256,
+                            default = '',
+                            null = False,
+                            blank = False)
+    active = models.BooleanField(default = True)
 
     def __unicode__(self):
         return self.name
 
-    def get_entries(self, first=0, count=settings.DEFAULT_MESSAGES_COUNT):
-        return self.post_set.all().order_by('-pk')[first:count]
+    def get_entries(self, first = 0, count = settings.DEFAULT_MESSAGES_COUNT):
+        return self.post_set.all().order_by('-pk')[first:first + count]
 
     def get_url(self):
         return '/blog/%s/' % self.alias
@@ -29,9 +29,9 @@ class Blog(models.Model):
 
 class Post(models.Model):
     blog = models.ForeignKey(Blog)
-    message = models.TextField(max_length=1024)
-    image = models.ImageField(upload_to=UPLOAD_DIR, null=True, blank=True)
-    user = models.ForeignKey(User, blank=True, null=True)
+    message = models.TextField(max_length = 1024)
+    image = models.ImageField(upload_to = UPLOAD_DIR, null = True, blank = True)
+    user = models.ForeignKey(User, blank = True, null = True)
 
     def __unicode__(self):
         return '%(name)s%(postfix)s' % \
