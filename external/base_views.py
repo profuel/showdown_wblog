@@ -49,7 +49,7 @@ def authorized_user_required(return_url = None):
     def wrap(view_func):
         def wrapped_f(self, request, *args, **kwargs):
             if request.user.is_anonymous():
-                url = reverse('login_view') + '?back=' + (return_url or request.path)
+                url = '/user/login/' + '?back=' + (return_url or request.path)
                 if request.is_ajax():
                     return HttpResponse(json.dumps({'status' : 'error', 'errors' : unicode(_('Authorization required')), 'url' : url}))
                 else :

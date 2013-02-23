@@ -11,7 +11,9 @@ class BlogView(BaseView):
 
     @render_html('blog/index.html')
     def index(self, request, *args, **kwargs):
-        return { 'posts' : request.blog.get_entries() }
+        entries = request.blog.get_entries()
+        return { 'posts' : entries,
+                'lastcount' : entries.count() }
 
     @authorized_user_required('/login/')
     @render_html('blog/add.html')

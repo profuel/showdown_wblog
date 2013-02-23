@@ -4,15 +4,23 @@
 <title>Wall Blogs</title>
 <script src="{{MEDIA_URL}}libs/jquery-1.7.1.js"></script>
 <script src="{{MEDIA_URL}}libs/jquery.scrollto.js"></script>
+<script src="{{MEDIA_URL}}scripts.js"></script>
+
+<link type="text/css" href="{{MEDIA_URL}}bootstrap/css/bootstrap.css" rel="stylesheet"/>
 </head>
 
 <body>
-<div>
-{% include 'user/state_block.html' %}
+<div class="container">
+	<div class="hero-unit">
+		<h1>{{request.blog}}</h1>
+	</div>
+	
+	{% include 'user/state_block.html' %}
+	
+	{% block content %}
+	
+	{% endblock %}
 </div>
-{% block content %}
-
-{% endblock %}
 </body>
 
 </html>

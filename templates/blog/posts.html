@@ -1,0 +1,15 @@
+{% for post in posts %}
+ <div class="media">
+ 	{% if post.image %}
+ 	<a class="pull-left">
+ 		<img class="media-object img-polaroid" 
+ 			 width="150px"
+ 			 style="align:left;" 
+ 			 src="{{MEDIA_URL}}{{post.image}}" />
+ 	</a>
+ 	{% endif %}
+ 	{{post.message}} <small>by {{post.user}}</small>
+ </div>
+ <hr/>
+{% endfor %}
+<li id="last" data-last="{{lastcount}}"></li>
